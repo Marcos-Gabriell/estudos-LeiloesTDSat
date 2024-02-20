@@ -10,7 +10,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -116,38 +116,41 @@ public class listagemVIEW extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        // Obtenha o índice da linha selecionada na tabela
+        
         int rowIndex = listaProdutos.getSelectedRow();
 
-        // Verifique se alguma linha está selecionada
+        
         if (rowIndex == -1) {
             JOptionPane.showMessageDialog(this, "Selecione um produto para vender.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Obtenha o ID do produto selecionado na tabela
+        
         String id = listaProdutos.getValueAt(rowIndex, 0).toString();
 
-        // Instancie a classe ProdutosDAO e chame o método venderProduto
+        
         ProdutosDAO produtosdao = new ProdutosDAO();
         produtosdao.venderProduto(Integer.parseInt(id));
 
-        // Atualize a lista de produtos na tabela após vender o produto
+        
         listarProdutos();
-    }//GEN-LAST:event_btnVenderActionPerformed
+    }
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        // Adicione a ação para consultar vendas
-    }//GEN-LAST:event_btnVendasActionPerformed
+       
+        TelasVendas vendas = new TelasVendas();
+
+       
+        vendas.setVisible(true);
+    }
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    // Método para listar os produtos na tabela
+    }
+    
     private void listarProdutos() {
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
@@ -170,7 +173,6 @@ public class listagemVIEW extends javax.swing.JFrame {
         }
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVendas;
     private javax.swing.JButton btnVender;
     private javax.swing.JButton btnVoltar;
@@ -181,6 +183,6 @@ public class listagemVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable listaProdutos;
-    // End of variables declaration//GEN-END:variables
+    
 }
 
