@@ -15,28 +15,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
+
 public class ProdutosDAO {
     
-    Connection conn;
-    PreparedStatement prep;
-    ResultSet resultset;
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
-    public void cadastrarProduto (ProdutosDTO produto){
-        
-        
-        //conn = new conectaDAO().connectDB();
-        
-        
+
+
+    public void venderProduto(int idProduto) {
+        for (ProdutosDTO produto : listagem) {
+            if (produto.getId() == idProduto) {
+                produto.setStatus("Vendido");
+                System.out.println("Produto vendido com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Produto não encontrado!");
     }
-    
-    public ArrayList<ProdutosDTO> listarProdutos(){
-        
-        return listagem;
-    }
-    
-    
-    
-        
 }
+
 
